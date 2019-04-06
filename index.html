@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Todo List</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Quicksand:300" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Fira+Sans:400,700" rel="stylesheet">
+</head>
+<body>
+	<div id="main-container">
+		<p id="title">Todo List<p>
+		<div id="buttons-container">
+			<div id="first-line-buttons" class="center">
+				<button id="toggle-all-button" class="button" onclick="handlers.toggleAll()">Toggle All</button>
+			</div>
+			<div id="second-line-buttons" class="center">
+				<button onclick="handlers.addTodo()" id="add-button" class="button">Add</button>
+				<input type="text" id="add-todo-text-input"></input>
+			</div>
+			<div id="third-line-buttons" class="center">
+				<button onclick="handlers.changeTodo()" id="change-todo-button" class="button">Change Todo</button>
+				<input type="number" id="todo-change-position-input"></input>
+				<input type="text" id="change-todo-text-input"></input>
+			</div>
+		</div>
+		
+		<div id="listView">
+			<ul></ul>
+		</div>
+		
+	</div>
+	<script src="script.js"></script>
+</body>
+</html>
