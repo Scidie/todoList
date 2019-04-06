@@ -7,7 +7,7 @@ var todoList = {
     })
   },
   changeTodo: function(position, newValue) {
-    this.todo[position-1].todoText = newValue;
+    this.todo[position].todoText = newValue;
   },
   deleteTodo: function(position) {
     this.todo.splice(position, 1);
@@ -17,21 +17,16 @@ var todoList = {
     todo.completed = !todo.completed;
   },
   toggleAll: function() {
-    var allTodos = this.todo.length;
-    var completedTodos = 0;
-    for (var i = 0; i < this.todo.length; i++) {
-      if (this.todo[i].completed === true) {
-        completedTodos++;
+    for (var i = 0; i < view.toggleList.length; i++) {
+      if (view.toggleList[i] === '( )') {
+        for (var i = 0; i < view.toggleList.length; i++) {
+            view.toggleList[i] = '(x)';
+        }
       }
-    }
-    if (completedTodos === allTodos) {
-      for (var i = 0; i < this.todo.length; i++) {
-        this.todo[i].completed = false;
-      }
-    }
-    else {
-      for (var i = 0; i < this.todo.length; i++) {
-        this.todo[i].completed = true;
+      else {
+        for (var i = 0; i < view.toggleList.length; i++) {
+          view.toggleList[i] = '( )';
+        }
       }
     }
   }
@@ -51,12 +46,8 @@ var handlers = {
     view.addToggleListElement();
     view.displayTodo();
   },
-  changeTodo: function() {
-    var todoChangePositionInput = document.getElementById('todo-change-position-input');
-    var changeTodoTextInput = document.getElementById('change-todo-text-input');
-    todoList.changeTodo(todoChangePositionInput.valueAsNumber, changeTodoTextInput.value);
-    todoChangePositionInput.value = '';
-    changeTodoTextInput.value = '';
+  changeTodo: function(position, text) {
+    todoList.changeTodo(position, text);
     view.displayTodo();
   },
   deleteTodo: function(position) {
@@ -67,6 +58,7 @@ var handlers = {
 //Viewing list object________________________________________________________________________________________________
 var view = {
   toggleList: [],
+  changeTodo: '',
   addToggleListElement: function() {
     this.toggleList.push('( )') 
   },
@@ -74,7 +66,6 @@ var view = {
   deleteToggleElement: function(position) {
     this.toggleList.splice(position, 1);
   },
-
   displayTodo: function() {
     var theList = document.querySelector('ul');
     theList.innerHTML = '';
@@ -92,7 +83,6 @@ var view = {
     var toggleElement = document.createElement('li')
     toggleElement.className = 'toggle-element';
     toggleElement.textContent = view.toggleList[position];
-    console.log('stworzony zostaje toggleElement i przypisana mu zostaje wartosc: ' + toggleElement.textContent + ' z listy: ' + this.toggleList);
     return toggleElement;
   },
   createTextElement: function(position) {
@@ -113,7 +103,6 @@ var ulList = document.querySelector('ul');
 ulList.addEventListener('click', function(event) {
   console.log(event);
   var elementClicked = event.target;
-  console.log('klikam na' + elementClicked.className);
   if (elementClicked.className === 'delete-button') {
     handlers.deleteTodo(parseInt(elementClicked.parentNode.id));
     view.deleteToggleElement(parseInt(elementClicked.parentNode.id));
@@ -122,13 +111,28 @@ ulList.addEventListener('click', function(event) {
     console.log('klikam na element z id rownym: '+ elementClicked.parentNode.id);
     if (elementClicked.textContent === '( )') {
       view.toggleList[parseInt(elementClicked.parentNode.id)] = '(x)';
-      console.log('tutaj drugi: ' + view.toggleList[parseInt(elementClicked.id)]);
     }
     else {
       view.toggleList[parseInt(elementClicked.parentNode.id)] = '( )';
     }
   }
+  else if (elementClicked.className === 'text-of-list-element') {
+    view.changeTodo = parseInt(elementClicked.parentNode.id);
+    console.log('jest tutaj');
+    document.getElementById('third-line-buttons').style.visibility = 'visible';
+    
+  }
   view.displayTodo();
+});
+
+var changeText = document.getElementById('change-todo-button');
+var changeTextInput = document.getElementById('change-todo-text-input');
+changeText.addEventListener('click', function(event) {
+  console.log(event);
+  var elementClicked = event.target;
+  handlers.changeTodo(view.changeTodo, changeTextInput.value);
+  document.getElementById('third-line-buttons').style.visibility = 'hidden';
+  changeTextInput.value = '';
 });
 
 
