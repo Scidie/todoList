@@ -109,7 +109,7 @@ const createHTMLObject = {
 const ulList = document.getElementById('list');
 
 const changeTodoButton = document.getElementById('change-todo-button');
-let changeTodoTextInput = document.getElementById('change-todo-text-input');
+const changeTodoTextInput = document.getElementById('change-todo-text-input');
 const addButton = document.getElementById('add-button');
 const todoTextInput = document.getElementById('add-todo-text-input');
 const buttonsContainer = document.getElementById('buttons-container');
