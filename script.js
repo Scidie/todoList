@@ -109,7 +109,7 @@ const createHTMLObject = {
 const ulList = document.getElementById('list');
 
 const changeTodoButton = document.getElementById('change-todo-button');
-const changeTodoTextInput = document.getElementById('change-todo-text-input');
+let changeTodoTextInput = document.getElementById('change-todo-text-input');
 const addButton = document.getElementById('add-button');
 const todoTextInput = document.getElementById('add-todo-text-input');
 const buttonsContainer = document.getElementById('buttons-container');
@@ -119,6 +119,8 @@ const secondLineButtons = document.getElementById('second-line-buttons');
 /** Event listener for the list containing all to-do's */
 ulList.addEventListener('click', function (event) {
     const elementClicked = event.target;
+
+    changeTodoTextInput.value = todoList.todo[parseInt(elementClicked.parentNode.id)].todoText;
 
     if (elementClicked.className === 'delete-button') {
         todoList.deleteTodo(parseInt(elementClicked.parentNode.id));
