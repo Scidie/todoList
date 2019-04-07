@@ -68,7 +68,7 @@ const viewTodoList = {
         for (let i = 0; i < todoList.todo.length; i++) {
             const listElement = document.createElement('li');
 
-            listElement.id = i;
+            listElement.id = i.toString();
             listElement.className = 'list-element';
             theList.appendChild(listElement);
             listElement.appendChild(createHTMLObject.createToggleElement(i));
