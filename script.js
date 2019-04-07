@@ -140,6 +140,10 @@ ulList.addEventListener('click', function (event) {
     viewTodoList.displayTodo();
 });
 
+/**
+ * When {@link changeTodoButton} is pressed, changes the text of to-do that's being edited, hides all elements related
+ * to editing to-do's and clears input field.
+ */
 changeTodoButton.addEventListener('click', function (event) {
     console.log(event);
     todoList.changeTodo(todoList.todoId, changeTodoTextInput.value);
