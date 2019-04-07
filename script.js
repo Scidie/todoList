@@ -116,7 +116,6 @@ const buttonsContainer = document.getElementById('buttons-container');
 const firstLineButtons = document.getElementById('first-line-buttons');
 const secondLineButtons = document.getElementById('second-line-buttons');
 let mainContainer = document.getElementById('main-container');
-let textOFlistELement = document.getElementById('text-of-list-element');
 
 /** Event listener for the list containing all to-do's */
 ulList.addEventListener('click', function (event) {
@@ -163,7 +162,7 @@ addButton.addEventListener('click', function () {
 
 mainContainer.addEventListener('click', function(event) {
   const elementClicked = event.target;
-  if (elementClicked.id != 'change-todo-button' && elementClicked.id != 'change-todo-text-input' && elementClicked.className != 'text-of-list-element') {
+  if (elementClicked.id !== 'change-todo-button' && elementClicked.id !== 'change-todo-text-input' && elementClicked.className !== 'text-of-list-element') {
     buttonsContainer.replaceChild(firstLineButtons, secondLineButtons);
   
   }
