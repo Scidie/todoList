@@ -132,25 +132,25 @@ ulList.addEventListener('click', function (event) {
         }
 
     } else if (elementClicked.className === 'text-of-list-element') {
-      todoList.todoId = parseInt(elementClicked.parentNode.id);
-      buttonsContainer.replaceChild(secondLineButtons, firstLineButtons);
-      document.getElementById('second-line-buttons').style.visibility = 'visible';
-      changeTodoTextInput.value = todoList.todo[parseInt(elementClicked.parentNode.id)].todoText;
+        todoList.todoId = parseInt(elementClicked.parentNode.id);
+        buttonsContainer.replaceChild(secondLineButtons, firstLineButtons);
+        document.getElementById('second-line-buttons').style.visibility = 'visible';
+        changeTodoTextInput.value = todoList.todo[parseInt(elementClicked.parentNode.id)].todoText;
     }
     viewTodoList.displayTodo();
 });
 
 changeTodoButton.addEventListener('click', function (event) {
-  console.log(event);
-  todoList.changeTodo(todoList.todoId, changeTodoTextInput.value);
-  document.getElementById('second-line-buttons').style.visibility = 'hidden';
-  buttonsContainer.replaceChild(firstLineButtons, secondLineButtons);
-  changeTodoTextInput.value = '';
+    console.log(event);
+    todoList.changeTodo(todoList.todoId, changeTodoTextInput.value);
+    document.getElementById('second-line-buttons').style.visibility = 'hidden';
+    buttonsContainer.replaceChild(firstLineButtons, secondLineButtons);
+    changeTodoTextInput.value = '';
 });
 
-addButton.addEventListener('click', function() {
-  todoList.addTodo();
-  todoTextInput.value = '';
+addButton.addEventListener('click', function () {
+    todoList.addTodo();
+    todoTextInput.value = '';
 });
 
 
