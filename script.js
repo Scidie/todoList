@@ -133,6 +133,10 @@ var ulList = document.querySelector('ul');
 ulList.addEventListener('click', function(event) {
   console.log(event);
   var elementClicked = event.target;
+  var changeTextInput = document.getElementById('change-todo-text-input');
+
+  // sets "to-do edit field" to the value of the to-do that is being edited
+  changeTextInput.value = todoList.todo[parseInt(elementClicked.parentNode.id)].todoText;
 
   if (elementClicked.className === 'delete-button') {
     handlers.deleteTodo(parseInt(elementClicked.parentNode.id));
