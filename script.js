@@ -1,6 +1,9 @@
 /**
  * Main script file, currently handling all to-do list logic
- * // pomyslalem zeby dodac 
+ *
+ * // pomyslalem zeby dodac jsdoc'i, zeby kod byl czytelniejszy, info wzialem z
+ * // https://make.wordpress.org/core/handbook/best-practices/inline-documentation-standards/javascript/
+ * // koment do wyjebania
  * 
  * @version 1.0
  * @author Scidie
