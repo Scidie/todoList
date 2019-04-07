@@ -1,5 +1,11 @@
+/**
+ * Main script file, currently handling all to-do list logic
+ * 
+ * @author Scidie
+ */
 var todoList = {
   todo: [],
+
   addTodo: function(todoText) {
     this.todo.push({
       todoText: todoText,
@@ -22,12 +28,12 @@ var todoList = {
 
   toggleAll: function() {
     for (var i = 0; i < view.toggleList.length; i++) {
+      
       if (view.toggleList[i] === '( )') {
         for (var i = 0; i < view.toggleList.length; i++) {
             view.toggleList[i] = '(x)';
         }
-      }
-      else {
+      } else {
         for (var i = 0; i < view.toggleList.length; i++) {
           view.toggleList[i] = '( )';
         }
@@ -42,6 +48,11 @@ var handlers = {
     view.displayTodo();
   },
 
+  /**
+   * grabs input box reference, adds new element to list, ...
+   * 
+   * @author Scidie
+   */
   addTodo: function() {
     var addTodo = document.getElementById('add-todo-text-input');
 
@@ -65,7 +76,7 @@ var handlers = {
   }
 }
 
-//Viewing list object________________________________________________________________________________________________
+// Viewing list object________________________________________________________________________________________________
 var view = {
   toggleList: [],
   changeTodo: '',
@@ -114,7 +125,7 @@ var view = {
   }
 }
 
-//Main event listener_______________________________________________________________________________________________
+// Main event listener_______________________________________________________________________________________________
 var ulList = document.querySelector('ul');
 
 ulList.addEventListener('click', function(event) {
@@ -127,7 +138,7 @@ ulList.addEventListener('click', function(event) {
   } 
   
   else if (elementClicked.className === 'toggle-element') {
-    console.log('klikam na element z id rownym: '+ elementClicked.parentNode.id); // todo narzedzie do logowania
+    console.log('klikam na element z id rownym: '+ elementClicked.parentNode.id);
 
       if (elementClicked.textContent === '( )') {
         view.toggleList[parseInt(elementClicked.parentNode.id)] = '(x)';
