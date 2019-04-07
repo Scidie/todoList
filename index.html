@@ -13,23 +13,20 @@
 		<p id="title">Todo List<p>
 		<div id="buttons-container">
 			<div id="first-line-buttons" class="center">
-				
-			</div>
-			<div id="second-line-buttons" class="center">
-				<button onclick="todoList.addTodo()" id="add-button" class="button">Add</button>
+				<button id="add-button" class="button">Add</button>
 				<input type="text" id="add-todo-text-input"></input>
-			</div>
-			<div id="third-line-buttons" class="center">
-				<button id="change-todo-button" class="button">Change Todo</button>
-				<input type="text" id="change-todo-text-input"></input>
 				<button id="toggle-all-button" class="button" onclick="todoList.toggleAll()">Toggle All</button>
 			</div>
 		</div>
 		
-		<div id="listView">
-			<ul></ul>
-		</div>
+		<div id="list"></div>
 		
+		
+	
+	</div>
+	<div id="second-line-buttons" class="center">
+		<button id="change-todo-button" class="button">Change</button>
+		<input type="text" id="change-todo-text-input"></input>
 	</div>
 	<script src="script.js"></script>
 </body>
