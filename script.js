@@ -1,6 +1,8 @@
 /**
  * Main script file, currently handling all to-do list logic
+ * // pomyslalem zeby dodac 
  * 
+ * @version 1.0
  * @author Scidie
  */
 var todoList = {
@@ -28,7 +30,7 @@ var todoList = {
 
   toggleAll: function() {
     for (var i = 0; i < view.toggleList.length; i++) {
-      
+
       if (view.toggleList[i] === '( )') {
         for (var i = 0; i < view.toggleList.length; i++) {
             view.toggleList[i] = '(x)';
