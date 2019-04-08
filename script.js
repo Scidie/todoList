@@ -124,7 +124,7 @@ ulList.addEventListener('click', function (event) {
 
     changeTodoTextInput.value = todoList.todo[parseInt(elementClicked.parentNode.id)].todoText;
 
-    if (elementClicked.className === 'delete-button, delete-button') {
+    if (elementClicked.className === 'delete-button') {
         todoList.deleteTodo(parseInt(elementClicked.parentNode.id));
         todoList.deleteToggleElement(parseInt(elementClicked.parentNode.id));
 
