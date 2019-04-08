@@ -85,7 +85,6 @@ const viewTodoList = {
 const createHTMLObject = {
     createToggleElement: function (position) {
         const toggleElement = document.createElement('li');
-
         toggleElement.className = 'toggle-element';
         toggleElement.textContent = todoList.toggleList[position];
         return toggleElement;
@@ -93,7 +92,6 @@ const createHTMLObject = {
 
     createTextElement: function (position) {
         const textElement = document.createElement('li');
-
         textElement.className = 'text-of-list-element';
         textElement.textContent = todoList.todo[position].todoText;
         return textElement;
@@ -101,7 +99,6 @@ const createHTMLObject = {
 
     createButtonElement: function () {
         const buttonElement = document.createElement('button');
-
         buttonElement.className = 'delete-button';
         buttonElement.textContent = 'x';
         return buttonElement;
@@ -120,13 +117,14 @@ const firstLineButtons = document.getElementById('first-line-buttons');
 const secondLineButtons = document.getElementById('second-line-buttons');
 let mainContainer = document.getElementById('main-container');
 
+
 /** Event listener for the list containing all to-do's */
 ulList.addEventListener('click', function (event) {
     const elementClicked = event.target;
 
     changeTodoTextInput.value = todoList.todo[parseInt(elementClicked.parentNode.id)].todoText;
 
-    if (elementClicked.className === 'delete-button') {
+    if (elementClicked.className === 'delete-button, delete-button') {
         todoList.deleteTodo(parseInt(elementClicked.parentNode.id));
         todoList.deleteToggleElement(parseInt(elementClicked.parentNode.id));
 

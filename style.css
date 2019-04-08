@@ -2,35 +2,40 @@
 	padding: 0;
 	margin: 0;
 	font-family: 'Indie Flower', cursive;
+	/* font-family: 'Fascinate Inline', cursive; */
 }
 
 body {
 	text-align: center;
-	background-color: #D3D1D1;
+	background-color: #4C4A44;
+	/* width: 100vw;
+	height: 100vh;   */
 }
 
 #main-container{
-	margin-top: 20px;
+	margin-top: 110px;
 	display: inline-block;
-	background-color: #BABBAB;
-	height: 360px;
+	background-color: #D6D3C9;
 	width: 248px;
-	box-shadow: 5px 6px 11px 2px rgba(0,0,0,0.78);
+	height: 350px;
+	-webkit-box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0,0,0,0); 
+	box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0,0,0,0);
 	border-radius: 3px;
+	transform: scale(1.5);
 }
 
 /* _____________________________________________________________________________________________________________ */
 #buttons-container {
 	display: inline-block;
+	position: absolute;
 	width: 230px;
 }
 
 #title {
 	padding: 20px;
-	color: #242424;
+	color: #4D4D4D;
 	font-size: 40px;
 	font-weight: bold;
-	font-family: 'Indie Flower', cursive;
 }
 /* _____________________________________________________________________________________________________________ */	
 #first-line-buttons {
@@ -38,33 +43,42 @@ body {
 }
 
 #add-button {
-	width: 15%;
+	width: 21%;
+	margin-right: 5px;
 	height: 22px;
-	margin-right: 1px;
-	background-color: #1FBD54;
-	color: white;
+	color: #19C7A5;
+	outline: none;
+	font-size: 16px;
+	margin-top: 2px;
 }
 
 #add-todo-text-input {
-	width: 70%;
+	width: calc(53% + 25px);
 	height: 22px;
 	border-radius: 3px;
 	border-style: none;
 	font-family: 'Fira Sans', sans-serif;
 	font-size: 10px;
 	text-align: center;
-	margin-right: 1px;
+	margin-right: 10px;
+	outline: none;
+	transform: none;
+	background-color: white;
 }
 
 #toggle-all-button {
 	height: 22px;
-	background-color: white;
 	color: #242424;
 	border-style: none;
 	width: 15%;
 	font-size: 10px;
 	line-height: 12px;
+	outline: none;
 }
+
+.button:active {
+	transform: scale(1.1);
+  }
 /* _____________________________________________________________________________________________________________ */
 #second-line-buttons {
 	display: flex;
@@ -72,66 +86,106 @@ body {
 	}
 
 #change-todo-button {
-	width: 20%;
+	width: 23%;
 	height: 22px;
 	margin-right: 1px;
-	background-color: #bd5734;
-	color: white;
+	color: #AA6A0E;
+	outline: none;
+	font-size: 16px;
+	margin-top: 2px;
+	z-index: 2;
 }
 
 #change-todo-text-input {
-	width: 80%;
+	width: calc(70% + 25px);
 	height: 22px;
 	border-radius: 3px;
 	border-style: none;
 	font-family: 'Fira Sans', sans-serif;
 	font-size: 10px;
 	text-align: center;
+	outline: none;
+	transform: none;
+	background-color: white;
+	margin-left: 5px;;
 }
 
 .button {
 	border-style: none;
 	border-radius: 3px;
 	font-weight: 900;
+	background-color: #D6D3C9;
 }
-/* _____________________________________________________________________________________________________________ */		
+
+.delete-button {
+	border-style: none;
+	font-weight: 900;
+	background-color: white;
+	margin-left: 25px;
+	outline: none;
+}
+
+.delete-button:active {
+	transform: scale(1.2);
+}
+/*_____________________________________________________________________________________________________________ */		
+
 .center {
 	justify-content: center;
 	align-items: center;
 }
 
-.delete-button {
+.delete-button-efecct {
 	background-color: white;
 	color: black;
 	border-style: none;
 	margin-left: 20px;
 }
+
+#line {
+	display: inline-block;
+	position: relative;
+	top: -14px;
+	width: 100%;
+	height: 1px;
+	background-color: #D1D0D0;
+}
+
 /*View list elements____________________________________________________________________________________________ */
 
 #list {
 	display: inline-block;
+	position: relative;
+	top: 15px;
 	width: 230px;
 	max-height: 220px;
 	height: 220px;
 	overflow-x: hidden;
-	border-radius: 3px;
 	background-color: white;
+	border-radius: 3px;
 	margin-top: 10px;
 	list-style: none;
+	/* border: solid 0.5px #D1D0D0; */
 }
 
 .toggle-element {
 	display: inline-block;
 	margin-right: 15px;
+	outline: none;
+	webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; 
 }
 
 .text-of-list-element {
 	display: inline-block;
 	font-family: 'Fira Sans', sans-serif;
 	font-size: 12px;
+	font-family: 'Fira Sans', sans-serif;
+	font-size: 10px;
+	font-weight: 900;
+	outline: none;
 }
-
-.delete-button {
-	display: inline-block;
-}
-
