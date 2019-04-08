@@ -21,7 +21,6 @@ let todoList = {
         const todoInputValue = document.getElementById('add-todo-text-input');
 
         if (todoInputValue.value !== '') {
-            console.log('todoInputValue is not empty!');
             this.todo.push({
                 todoText: todoInputValue.value,
             })
@@ -43,18 +42,22 @@ let todoList = {
     },
 
     toggleAll: function () {
-        for (let i = 0; i < todoList.toggleList.length; i++) {
-
+        var emptyToggles = 0;
+        for (let i = 0; i < todoList.toggleList.length; i++) { 
             if (todoList.toggleList[i] === '( )') {
-                for (i = 0; i < todoList.toggleList.length; i++) {
-                    todoList.toggleList[i] = '(x)';
-                }
-            } else {
-                for (i = 0; i < todoList.toggleList.length; i++) {
-                    todoList.toggleList[i] = '( )';
-                }
+                emptyToggles++;
             }
         }
+        if (emptyToggles == 0) {
+            for (let i = 0; i < todoList.toggleList.length; i++) { 
+                todoList.toggleList[i] = '( )';
+            }
+        } else {
+            for (let i = 0; i < todoList.toggleList.length; i++) { 
+                todoList.toggleList[i] = '(x)';
+            }
+        }   
+        
         viewTodoList.displayTodo();
     }
 };
