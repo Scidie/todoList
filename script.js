@@ -160,22 +160,12 @@ addButton.addEventListener('click', function () {
     todoTextInput.value = '';
 });
 
-mainContainer.addEventListener('click', function(event) {
+/** Event listener which handles replacing "change to-do" elements, with "add to-do" elements. */
+mainContainer.addEventListener('click', function (event) {
   const elementClicked = event.target;
-  if (elementClicked.id !== 'change-todo-button' && elementClicked.id !== 'change-todo-text-input' && elementClicked.className !== 'text-of-list-element') {
+
+  if (elementClicked.id !== 'change-todo-button' && elementClicked.id !== 'change-todo-text-input'
+      && elementClicked.className !== 'text-of-list-element') {
     buttonsContainer.replaceChild(firstLineButtons, secondLineButtons);
-  
   }
 });
-
-
-
-
-
-
-
-
-
-
-
-
