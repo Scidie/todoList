@@ -166,6 +166,7 @@ body {
 	margin-top: 10px;
 	list-style: none;
 	padding-top: 20px;
+	text-align: left;
 	/* border: solid 0.5px #D1D0D0; */
 }
 
@@ -194,11 +195,13 @@ body {
 .not-completed-image {
 	width: 12px;
 	margin-right: 12px;
+	margin-left: 40px;
 }
 
 .completed-image {
 	width: 12px;
 	margin-right: 12px;
+	margin-left: 40px;
 }
 
 .toggle-element {
