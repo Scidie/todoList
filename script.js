@@ -4,25 +4,10 @@
  * @version 1.1
  * @author Scidie
  */
-
-
-let completedImage = document.createElement('img');
-completedImage.src = 'images/tick-305245_640.png';
-completedImage.className = 'completed-image';
-    
-let notCompletedImage = document.createElement('img');
-notCompletedImage.src = 'images/minus-1270000_640.png';
-notCompletedImage.className = 'not-completed-image';
-
 let todoList = {
     todo: [],
-    toggleList: [],
     todoId: '',
     
-    addToggleListElement: function () {
-        this.toggleList.push(notCompletedImage);
-    },
-
     deleteToggleElement: function (position) {
         this.toggleList.splice(position, 1);
     },
@@ -37,7 +22,7 @@ let todoList = {
         }
 
         todoInputValue.value = '';
-        this.addToggleListElement();
+        createHTMLObject.addImageListElement();
         viewTodoList.displayTodo();
     },
 
@@ -52,19 +37,19 @@ let todoList = {
     },
 
     toggleAll: function () {
-        var emptyToggles = 0;
-        for (let i = 0; i < todoList.toggleList.length; i++) { 
-            if (todoList.toggleList[i] === '( )') {
-                emptyToggles++;
+        let notCompletedTogglesCounter = 0;
+        for (let i = 0; i < createHTMLObject.imageList.length; i++) { 
+            if (createHTMLObject.imageList[i].className == createHTMLObject.createNotCompletedImage().className) {
+                notCompletedTogglesCounter++;
             }
         }
-        if (emptyToggles == 0) {
-            for (let i = 0; i < todoList.toggleList.length; i++) { 
-                todoList.toggleList[i] = '( )';
+        if (notCompletedTogglesCounter == createHTMLObject.imageList.length) {
+            for (let i = 0; i < createHTMLObject.imageList.length; i++) { 
+                createHTMLObject.imageList[i] = createHTMLObject.createCompletedImage();
             }
         } else {
-            for (let i = 0; i < todoList.toggleList.length; i++) { 
-                todoList.toggleList[i] = '(x)';
+            for (let i = 0; i < createHTMLObject.imageList.length; i++) { 
+                createHTMLObject.imageList[i] = createHTMLObject.createNotCompletedImage();
             }
         }   
         
@@ -73,7 +58,7 @@ let todoList = {
 };
 
 /** Viewing todoList */
-const viewTodoList = {
+let viewTodoList = {
     displayTodo: function () {
         const theList = document.getElementById('list');
         theList.innerHTML = '';
@@ -82,9 +67,8 @@ const viewTodoList = {
             const listElement = document.createElement('li');
             listElement.id = i.toString();
             listElement.className = 'list-element';
-            console.log(todoList.toggleList[i]);
             theList.appendChild(listElement);
-            listElement.appendChild(todoList.toggleList[i]);
+            listElement.appendChild(createHTMLObject.imageList[i]);
             listElement.appendChild(createHTMLObject.createTextElement(i));
             listElement.appendChild(createHTMLObject.createButtonElement());
         }
@@ -92,12 +76,25 @@ const viewTodoList = {
 };
 
 /** Functions creating HTML objects */
-const createHTMLObject = {
-    createToggleElement: function (position) {
-        const toggleElement = document.createElement('li');
-        toggleElement.className = 'toggle-element';
-        toggleElement.appendChild(position);
-        return toggleElement;
+let createHTMLObject = {
+    imageList: [],
+
+    addImageListElement: function () {
+        createHTMLObject.imageList.push(createHTMLObject.createNotCompletedImage());
+    },
+
+    createCompletedImage: function () {
+        completedImage = document.createElement('img');
+        completedImage.src = 'images/tick-305245_640.png';
+        completedImage.className = 'completed-image';
+        return completedImage;
+    },
+    
+    createNotCompletedImage : function () {
+        notCompletedImage = document.createElement('img');
+        notCompletedImage.src = 'images/minus-1270000_640.png';
+        notCompletedImage.className = 'not-completed-image';
+        return notCompletedImage;
     },
 
     createTextElement: function (position) {
@@ -138,10 +135,10 @@ ulList.addEventListener('click', function (event) {
         todoList.deleteToggleElement(parseInt(elementClicked.parentNode.id));
 
     } else if (elementClicked.className === 'not-completed-image') {
-            todoList.toggleList[parseInt(elementClicked.parentNode.id)] = completedImage;
+            createHTMLObject.imageList[parseInt(elementClicked.parentNode.id)] = createHTMLObject.createCompletedImage();
 
     } else if (elementClicked.className === 'completed-image') {
-            todoList.toggleList[parseInt(elementClicked.parentNode.id)] = notCompletedImage;
+            createHTMLObject.imageList[parseInt(elementClicked.parentNode.id)] = createHTMLObject.createNotCompletedImage();
 
     } else if (elementClicked.className === 'text-of-list-element') {
         changeTodoTextInput.value = todoList.todo[parseInt(elementClicked.parentNode.id)].todoText;
