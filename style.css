@@ -169,17 +169,17 @@ body {
 	/* border: solid 0.5px #D1D0D0; */
 }
 
-.toggle-element {
+/*.toggle-element {
 	display: inline-block;
 	margin-right: 15px;
 	outline: none;
-	webkit-touch-callout: none; /* iOS Safari */
-    -webkit-user-select: none; /* Safari */
-     -khtml-user-select: none; /* Konqueror HTML */
-       -moz-user-select: none; /* Firefox */
-        -ms-user-select: none; /* Internet Explorer/Edge */
-            user-select: none; 
+	webkit-touch-callout: none; 
+    -webkit-user-select: none; 
+     -khtml-user-select: none; 
+       -moz-user-select: none; 
+        -ms-user-select: none; 
 }
+*/
 
 .text-of-list-element {
 	display: inline-block;
@@ -190,3 +190,19 @@ body {
 	font-weight: 900;
 	outline: none;
 }
+
+.not-completed-image {
+	width: 12px;
+	margin-right: 12px;
+}
+
+.completed-image {
+	width: 12px;
+	margin-right: 12px;
+}
+
+.toggle-element {
+	display: inline-block;
+	margin-right: 15px;
+}
+/* zeby elementy byly rowno od lewej dodaj text align right i daj nieco margin left :) */

@@ -21,6 +21,7 @@ let todoList = {
     
     addToggleListElement: function () {
         this.toggleList.push(notCompletedImage);
+        console.log(this.toggleList);
     },
 
     deleteToggleElement: function (position) {
@@ -80,11 +81,11 @@ const viewTodoList = {
 
         for (let i = 0; i < todoList.todo.length; i++) {
             const listElement = document.createElement('li');
+
             listElement.id = i.toString();
             listElement.className = 'list-element';
-            console.log(todoList.toggleList[i]);
             theList.appendChild(listElement);
-            listElement.appendChild(todoList.toggleList[i]);
+            listElement.appendChild(createHTMLObject.createToggleElement(todoList.toggleList[i]));
             listElement.appendChild(createHTMLObject.createTextElement(i));
             listElement.appendChild(createHTMLObject.createButtonElement());
         }
@@ -133,18 +134,23 @@ ulList.addEventListener('click', function (event) {
     console.log(event);
     const elementClicked = event.target;
 
+    let imageParent = elementClicked.parentNode;
+    console.log('zalukaj tu: ' + imageParent.className);
+
+    changeTodoTextInput.value = todoList.todo[parseInt(imageParent.parentNode.id)].todoText;
+    console.log(todoList.todo[parseInt(imageParent.parentNode.id)]);
+
     if (elementClicked.className === 'delete-button') {
         todoList.deleteTodo(parseInt(elementClicked.parentNode.id));
         todoList.deleteToggleElement(parseInt(elementClicked.parentNode.id));
 
     } else if (elementClicked.className === 'not-completed-image') {
-            todoList.toggleList[parseInt(elementClicked.parentNode.id)] = completedImage;
+            todoList.toggleList[parseInt(imageParent.parentNode.id)] = completedImage;
 
     } else if (elementClicked.className === 'completed-image') {
-            todoList.toggleList[parseInt(elementClicked.parentNode.id)] = notCompletedImage;
+            todoList.toggleList[parseInt(imageParent.parentNode.id)] = notCompletedImage;
 
     } else if (elementClicked.className === 'text-of-list-element') {
-        changeTodoTextInput.value = todoList.todo[parseInt(elementClicked.parentNode.id)].todoText;
         todoList.todoId = parseInt(elementClicked.parentNode.id);
         buttonsContainer.replaceChild(secondLineButtons, firstLineButtons);
         document.getElementById('second-line-buttons').style.visibility = 'visible';
