@@ -9,7 +9,7 @@ let todoList = {
     todoId: '',
     
     deleteToggleElement: function (position) {
-        this.toggleList.splice(position, 1);
+        createHTMLObject.imageList.splice(position, 1);
     },
 
     addTodo: function () {
