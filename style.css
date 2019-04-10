@@ -171,18 +171,19 @@ body {
 	font-size: 10px;
 	font-weight: 900;
 	outline: none;
+	width: 60%;
 }
 
 .not-completed-image {
 	width: 12px;
 	margin-right: 12px;
-	margin-left: 40px;
+	margin-left: 20px;
 }
 
 .completed-image {
 	width: 12px;
 	margin-right: 12px;
-	margin-left: 40px;
+	margin-left: 20px;
 }
 
 .completed-image:active {
