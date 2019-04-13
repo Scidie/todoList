@@ -172,18 +172,21 @@ body {
 	font-weight: 900;
 	outline: none;
 	width: 60%;
+	vertical-align: middle;
 }
 
 .not-completed-image {
 	width: 12px;
 	margin-right: 12px;
 	margin-left: 20px;
+	vertical-align: middle;
 }
 
 .completed-image {
 	width: 12px;
 	margin-right: 12px;
 	margin-left: 20px;
+	vertical-align: middle;
 }
 
 .completed-image:active {

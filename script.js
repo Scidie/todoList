@@ -79,32 +79,32 @@ let viewTodoList = {
 let createHTMLObject = {
     imageList: [],
 
-    addImageListElement: function () {
+    addImageListElement: function() {
         createHTMLObject.imageList.push(createHTMLObject.createNotCompletedImage());
     },
 
-    createCompletedImage: function () {
+    createCompletedImage: function() {
         completedImage = document.createElement('img');
         completedImage.src = 'images/tick-305245_640.png';
         completedImage.className = 'completed-image';
         return completedImage;
     },
     
-    createNotCompletedImage : function () {
+    createNotCompletedImage : function() {
         notCompletedImage = document.createElement('img');
         notCompletedImage.src = 'images/minus-1270000_640.png';
         notCompletedImage.className = 'not-completed-image';
         return notCompletedImage;
     },
 
-    createTextElement: function (position) {
+    createTextElement: function(position) {
         const textElement = document.createElement('li');
         textElement.className = 'text-of-list-element';
         textElement.textContent = todoList.todo[position].todoText;
         return textElement;
     },
 
-    createButtonElement: function () {
+    createButtonElement: function() {
         const buttonElement = document.createElement('button');
         buttonElement.className = 'delete-button';
         buttonElement.textContent = 'x';
@@ -126,7 +126,7 @@ let mainContainer = document.getElementById('main-container');
 
 
 /** Event listener for the list containing all to-do's */
-ulList.addEventListener('click', function (event) {
+ulList.addEventListener('click', function(event) {
     console.log(event);
     const elementClicked = event.target;
 
@@ -145,6 +145,7 @@ ulList.addEventListener('click', function (event) {
         todoList.todoId = parseInt(elementClicked.parentNode.id);
         buttonsContainer.replaceChild(secondLineButtons, firstLineButtons);
         document.getElementById('second-line-buttons').style.visibility = 'visible';
+        changeTodoTextInput.focus();
         changeTodoTextInput.value = todoList.todo[parseInt(elementClicked.parentNode.id)].todoText;
     }
     viewTodoList.displayTodo();
@@ -154,7 +155,7 @@ ulList.addEventListener('click', function (event) {
  * When {@link changeTodoButton} is pressed, changes the text of to-do that's being edited, hides all elements related
  * to editing to-do's and clears input field.
  */
-changeTodoButton.addEventListener('click', function (event) {
+changeTodoButton.addEventListener('click', function(event) {
     console.log(event);
     todoList.changeTodo(todoList.todoId, changeTodoTextInput.value);
     document.getElementById('second-line-buttons').style.visibility = 'hidden';
@@ -162,13 +163,32 @@ changeTodoButton.addEventListener('click', function (event) {
     changeTodoTextInput.value = '';
 });
 
-addButton.addEventListener('click', function () {
+addButton.addEventListener('click', function() {
     todoList.addTodo();
     todoTextInput.value = '';
 });
 
+todoTextInput.addEventListener('keydown', function(e) {
+    if (e.keyCode == 13) {
+        todoList.addTodo();
+        todoTextInput.blur();
+        todoTextInput.value = '';
+    }
+});
+
+changeTodoTextInput.addEventListener('keydown', function(e) {
+    if (e.keyCode == 13) {
+        todoList.changeTodo(todoList.todoId, changeTodoTextInput.value);
+    document.getElementById('second-line-buttons').style.visibility = 'hidden';
+    buttonsContainer.replaceChild(firstLineButtons, secondLineButtons);
+    changeTodoTextInput.value = '';
+    }
+});
+
+
+
 /** Event listener which handles replacing "change to-do" elements, with "add to-do" elements. */
-mainContainer.addEventListener('click', function (event) {
+mainContainer.addEventListener('click', function(event) {
   const elementClicked = event.target;
 
   if (elementClicked.id !== 'change-todo-button' && elementClicked.id !== 'change-todo-text-input'
