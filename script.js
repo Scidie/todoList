@@ -185,8 +185,6 @@ changeTodoTextInput.addEventListener('keydown', function(e) {
     }
 });
 
-
-
 /** Event listener which handles replacing "change to-do" elements, with "add to-do" elements. */
 mainContainer.addEventListener('click', function(event) {
   const elementClicked = event.target;
