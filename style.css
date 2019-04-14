@@ -53,6 +53,7 @@ body {
 }
 
 #add-todo-text-input {
+	font-weight: 400;
 	width: calc(53% + 25px);
 	height: 22px;
 	border-radius: 3px;
@@ -93,12 +94,13 @@ body {
 	margin-right: 1px;
 	color: #AA6A0E;
 	outline: none;
-	font-size: 15px;
+	font-size: 12px;
 	margin-top: 2px;
 	z-index: 2;
 }
 
 #change-todo-text-input {
+	font-weight: 400;
 	width: calc(70% + 25px);
 	height: 22px;
 	border-radius: 3px;
@@ -172,7 +174,7 @@ body {
 	font-size: 12px;
 	font-family: 'Fira Sans', sans-serif;
 	font-size: 10px;
-	font-weight: 900;
+	font-weight: 400;
 	outline: none;
 	width: 60%;
 	vertical-align: middle;
