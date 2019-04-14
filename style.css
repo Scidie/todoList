@@ -8,8 +8,6 @@
 body {
 	text-align: center;
 	background-color: #4C4A44;
-	/* width: 100vw;
-	height: 100vh;   */
 }
 
 #main-container{
@@ -25,6 +23,7 @@ body {
 }
 
 /* _____________________________________________________________________________________________________________ */
+
 #buttons-container {
 	display: inline-block;
 	position: absolute;
@@ -38,6 +37,7 @@ body {
 	font-weight: bold;
 }
 /* _____________________________________________________________________________________________________________ */	
+
 #first-line-buttons {
 	display: flex;	
 }
@@ -79,7 +79,9 @@ body {
 .button:active {
 	transform: scale(1.1);
   }
+
 /* _____________________________________________________________________________________________________________ */
+
 #second-line-buttons {
 	display: flex;
 	visibility: hidden;
@@ -128,6 +130,7 @@ body {
 .delete-button:active {
 	transform: scale(1.2);
 }
+
 /*_____________________________________________________________________________________________________________ */		
 
 .center {
