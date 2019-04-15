@@ -85,14 +85,14 @@ let createHTMLObject = {
 
     createCompletedImage: function() {
         completedImage = document.createElement('img');
-        completedImage.src = 'images/tick-305245_640.png';
+        completedImage.src = 'https://cdn4.iconfinder.com/data/icons/colicon/24/checkmark_done_complete-512.png'
         completedImage.className = 'completed-image';
         return completedImage;
     },
     
     createNotCompletedImage : function() {
         notCompletedImage = document.createElement('img');
-        notCompletedImage.src = 'images/minus-1270000_640.png';
+        notCompletedImage.src = 'https://www.shareicon.net/download/2015/09/20/104248_close.ico';
         notCompletedImage.className = 'not-completed-image';
         return notCompletedImage;
     },
@@ -171,7 +171,6 @@ addButton.addEventListener('click', function() {
 todoTextInput.addEventListener('keydown', function(e) {
     if (e.keyCode == 13) {
         todoList.addTodo();
-        todoTextInput.blur();
         todoTextInput.value = '';
     }
 });
