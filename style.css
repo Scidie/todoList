@@ -6,6 +6,7 @@
 }
 
 body {
+	display: flex;
 	text-align: center;
 	background-color: #4C4A44;
 }
@@ -39,6 +40,7 @@ body {
 
 #first-line-buttons {
 	display: flex;	
+	margin-bottom: 1px;
   
 }
 
@@ -47,7 +49,6 @@ body {
 	margin-right: 5px;
 	color: #33A17C;
 	outline: none;
-	margin-top: 2px;
 }
 
 #add-todo-text-input {
@@ -84,6 +85,7 @@ body {
 #second-line-buttons {
 	display: flex;
 	visibility: hidden;
+	margin-bottom: 1px;
 	}
 
 #change-todo-button {
@@ -93,7 +95,6 @@ body {
 	color: #AA6A0E;
 	outline: none;
 	font-size: 12px;
-	margin-top: 2px;
 	z-index: 2;
 }
 
