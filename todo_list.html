@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <title>Todo List</title>
+   <link rel="stylesheet" type="text/css" href="style.css">
+   <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css?family=Quicksand:300" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css?family=Fira+Sans:400,700" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css?family=Fascinate+Inline" rel="stylesheet">
+</head>
+<body>
+<div id="wrapper">
+   <div id="main-section">
+      <div id="application-container">
+         <p id="title">Todo List<p>
+         <div id="buttons-container">
+            <div id="first-line-buttons" class="center">
+               <button id="add-button" class="button">Add</button>
+               <input type="text" id="add-todo-text-input" class="button" spellcheck="false"></input>
+               <button id="toggle-all-button" class="button" onclick="todoList.toggleAll()">Toggle All</button>
+            </div>
+            <!-- <div id="line"></div> -->
+         </div>
+         <div id="list"></div>
+      </div>
+   </div>
+
+   <div id="second-line-buttons" class="center">
+      <button id="change-todo-button" class="button">Change</button>
+      <input type="text" id="change-todo-text-input" class="button" spellcheck="false"></input>
+   </div>
+
+</div>
+<script src="script.js"></script>
+</body>
+</html>

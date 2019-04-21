@@ -110,11 +110,12 @@ let createHTMLObject = {
         buttonElement.textContent = 'x';
         return buttonElement;
     }
+
+
 };
 
 // Event Listeners of created HTML objects
 const ulList = document.getElementById('list');
-
 const changeTodoButton = document.getElementById('change-todo-button');
 let changeTodoTextInput = document.getElementById('change-todo-text-input');
 const addButton = document.getElementById('add-button');
@@ -141,6 +142,7 @@ ulList.addEventListener('click', function(event) {
             createHTMLObject.imageList[parseInt(elementClicked.parentNode.id)] = createHTMLObject.createNotCompletedImage();
 
     } else if (elementClicked.className === 'text-of-list-element') {
+        secondLineButtons.style.width = '100%';
         changeTodoTextInput.value = todoList.todo[parseInt(elementClicked.parentNode.id)].todoText;
         todoList.todoId = parseInt(elementClicked.parentNode.id);
         buttonsContainer.replaceChild(secondLineButtons, firstLineButtons);
